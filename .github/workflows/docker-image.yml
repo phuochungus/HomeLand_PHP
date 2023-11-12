@@ -6,6 +6,8 @@ on:
       - "PHP Composer"
     types:
       - completed
+  workflow_dispatch:
+    
 
 jobs:
 
