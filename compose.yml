@@ -1,0 +1,14 @@
+version: "3"
+services:
+  pg2:
+    ports:
+      - "5432:5432"
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=homeland_db_php
+    volumes:
+      - pgdata2:/var/lib/postgresql/data
+
+volumes:
+  pgdata2:
