@@ -25,6 +25,20 @@ SET row_security = off;
 
 -- *not* creating schema, since initdb creates it
 
+DO
+$do$
+BEGIN
+   IF EXISTS (
+      SELECT FROM pg_catalog.pg_roles
+      WHERE  rolname = 'homeland_db_user') THEN
+
+      RAISE NOTICE 'Role "homeland_db_user" already exists. Skipping.';
+   ELSE
+      CREATE USER homeland_db_user WITH PASSWORD '123';
+   END IF;
+END
+$do$;
+
 
 ALTER SCHEMA public OWNER TO homeland_db_user;
 

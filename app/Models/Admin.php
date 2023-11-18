@@ -9,7 +9,12 @@ class Admin extends Model
 {
     use HasFactory;
 
+    protected $table = 'admin';
     protected $keyType = 'string';
+
+    public $timestamps = false;
+
+
 
     public function account()
     {

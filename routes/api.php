@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AccountController;
-
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +21,33 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('auth')->group(function () {
-    Route::post('signin', [AuthController::class, 'signin']);
-    Route::post('signup', [AuthController::class, 'signup']);
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::delete('seed/DB', function () {
+    db::statement('DROP SCHEMA public CASCADE');
+    db::statement('CREATE SCHEMA public');
+    return 'All tables dropped successfully';
 });
 
-Route::prefix('accounts')->group(function () {
-    Route::get('/', [AccountController::class, 'index']);
-    Route::post('/', [AccountController::class, 'store']);
-    Route::get('/{id}', [AccountController::class, 'show']);
-    Route::put('/{id}', [AccountController::class, 'update']);
-    Route::delete('/{id}', [AccountController::class, 'destroy']);
+Route::post('seed/DB', function () {
+    try {
+
+        $filePath = storage_path('../database/schema/pgsql-schema.sql');
+        $sqlStatements = file_get_contents($filePath);
+        DB::unprepared($sqlStatements);
+
+        return 'Migrations executed successfully';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
+
+Route::post('seed', function () {
+    try {
+        Artisan::call('db:seed');
+        return 'Seeding executed successfully';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
 });
