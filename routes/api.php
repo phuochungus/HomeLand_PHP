@@ -1,5 +1,6 @@
-<?php
+    <?php
 
+use App\Http\Controllers\BuildingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('building',[BuildingController::class, 'store']);
+Route::patch('building/{id}',[BuildingController::class, 'update']);
+Route::delete('building/{id}',[BuildingController::class, 'delete']);
+Route::get('building/search',[BuildingController::class, 'search']);
+Route::get('building',[BuildingController::class, 'index']);
+Route::get('building/{id}',[BuildingController::class, 'getById']);
+
+
