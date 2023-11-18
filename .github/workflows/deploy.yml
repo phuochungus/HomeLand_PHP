@@ -1,12 +1,10 @@
 name: Deploy on Render
 
 on:
-  workflow_dispatch:
-  workflow_run:
-    workflows:
-      - "Docker Image CI"
-    types:
-      - completed
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   deploy:
