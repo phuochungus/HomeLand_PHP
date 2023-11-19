@@ -2,10 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 15.4
--- Dumped by pg_dump version 15.3
-
--- Started on 2023-11-17 22:54:49
+-- Dumped from database version 16.0 (Debian 16.0-1.pgdg120+1)
+-- Dumped by pg_dump version 16.0
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,41 +17,21 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5 (class 2615 OID 18549)
--- Name: public; Type: SCHEMA; Schema: -; Owner: homeland_db_user
+-- Name: public; Type: SCHEMA; Schema: -; Owner: -
 --
 
 -- *not* creating schema, since initdb creates it
 
-DO
-$do$
-BEGIN
-   IF EXISTS (
-      SELECT FROM pg_catalog.pg_roles
-      WHERE  rolname = 'homeland_db_user') THEN
-
-      RAISE NOTICE 'Role "homeland_db_user" already exists. Skipping.';
-   ELSE
-      CREATE USER homeland_db_user WITH PASSWORD '123';
-   END IF;
-END
-$do$;
-
-
-ALTER SCHEMA public OWNER TO homeland_db_user;
 
 --
--- TOC entry 3303 (class 0 OID 0)
--- Dependencies: 5
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: homeland_db_user
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
 --
 
 COMMENT ON SCHEMA public IS '';
 
 
 --
--- TOC entry 883 (class 1247 OID 23174)
--- Name: admin_profilegender_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: admin_profilegender_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.admin_profilegender_enum AS ENUM (
@@ -62,11 +40,8 @@ CREATE TYPE public.admin_profilegender_enum AS ENUM (
 );
 
 
-ALTER TYPE public.admin_profilegender_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 862 (class 1247 OID 23109)
--- Name: apartment_status_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: apartment_status_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.apartment_status_enum AS ENUM (
@@ -75,11 +50,8 @@ CREATE TYPE public.apartment_status_enum AS ENUM (
 );
 
 
-ALTER TYPE public.apartment_status_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 868 (class 1247 OID 23123)
--- Name: contract_role_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: contract_role_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.contract_role_enum AS ENUM (
@@ -88,11 +60,8 @@ CREATE TYPE public.contract_role_enum AS ENUM (
 );
 
 
-ALTER TYPE public.contract_role_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 871 (class 1247 OID 23128)
--- Name: contract_status_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: contract_status_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.contract_status_enum AS ENUM (
@@ -101,11 +70,8 @@ CREATE TYPE public.contract_status_enum AS ENUM (
 );
 
 
-ALTER TYPE public.contract_status_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 898 (class 1247 OID 23220)
--- Name: employee_profilegender_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: employee_profilegender_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.employee_profilegender_enum AS ENUM (
@@ -114,11 +80,8 @@ CREATE TYPE public.employee_profilegender_enum AS ENUM (
 );
 
 
-ALTER TYPE public.employee_profilegender_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 913 (class 1247 OID 23411)
--- Name: equipment_status_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: equipment_status_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.equipment_status_enum AS ENUM (
@@ -128,11 +91,8 @@ CREATE TYPE public.equipment_status_enum AS ENUM (
 );
 
 
-ALTER TYPE public.equipment_status_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 850 (class 1247 OID 23077)
--- Name: manager_profilegender_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: manager_profilegender_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.manager_profilegender_enum AS ENUM (
@@ -141,11 +101,8 @@ CREATE TYPE public.manager_profilegender_enum AS ENUM (
 );
 
 
-ALTER TYPE public.manager_profilegender_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 877 (class 1247 OID 23156)
--- Name: resident_profilegender_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: resident_profilegender_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.resident_profilegender_enum AS ENUM (
@@ -154,11 +111,8 @@ CREATE TYPE public.resident_profilegender_enum AS ENUM (
 );
 
 
-ALTER TYPE public.resident_profilegender_enum OWNER TO homeland_db_user;
-
 --
--- TOC entry 889 (class 1247 OID 23192)
--- Name: technician_profilegender_enum; Type: TYPE; Schema: public; Owner: homeland_db_user
+-- Name: technician_profilegender_enum; Type: TYPE; Schema: public; Owner: -
 --
 
 CREATE TYPE public.technician_profilegender_enum AS ENUM (
@@ -167,15 +121,12 @@ CREATE TYPE public.technician_profilegender_enum AS ENUM (
 );
 
 
-ALTER TYPE public.technician_profilegender_enum OWNER TO homeland_db_user;
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 222 (class 1259 OID 23209)
--- Name: account; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: account; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.account (
@@ -189,11 +140,8 @@ CREATE TABLE public.account (
 );
 
 
-ALTER TABLE public.account OWNER TO homeland_db_user;
-
 --
--- TOC entry 220 (class 1259 OID 23179)
--- Name: admin; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: admin; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.admin (
@@ -210,11 +158,8 @@ CREATE TABLE public.admin (
 );
 
 
-ALTER TABLE public.admin OWNER TO homeland_db_user;
-
 --
--- TOC entry 217 (class 1259 OID 23113)
--- Name: apartment; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: apartment; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.apartment (
@@ -235,11 +180,8 @@ CREATE TABLE public.apartment (
 );
 
 
-ALTER TABLE public.apartment OWNER TO homeland_db_user;
-
 --
--- TOC entry 215 (class 1259 OID 23093)
--- Name: building; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: building; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.building (
@@ -251,11 +193,8 @@ CREATE TABLE public.building (
 );
 
 
-ALTER TABLE public.building OWNER TO homeland_db_user;
-
 --
--- TOC entry 218 (class 1259 OID 23133)
--- Name: contract; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: contract; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.contract (
@@ -273,11 +212,8 @@ CREATE TABLE public.contract (
 );
 
 
-ALTER TABLE public.contract OWNER TO homeland_db_user;
-
 --
--- TOC entry 223 (class 1259 OID 23225)
--- Name: employee; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: employee; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.employee (
@@ -295,11 +231,8 @@ CREATE TABLE public.employee (
 );
 
 
-ALTER TABLE public.employee OWNER TO homeland_db_user;
-
 --
--- TOC entry 227 (class 1259 OID 23417)
--- Name: equipment; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: equipment; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.equipment (
@@ -316,11 +249,8 @@ CREATE TABLE public.equipment (
 );
 
 
-ALTER TABLE public.equipment OWNER TO homeland_db_user;
-
 --
--- TOC entry 216 (class 1259 OID 23101)
--- Name: floor; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: floor; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.floor (
@@ -330,11 +260,8 @@ CREATE TABLE public.floor (
 );
 
 
-ALTER TABLE public.floor OWNER TO homeland_db_user;
-
 --
--- TOC entry 214 (class 1259 OID 23081)
--- Name: manager; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: manager; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.manager (
@@ -352,11 +279,39 @@ CREATE TABLE public.manager (
 );
 
 
-ALTER TABLE public.manager OWNER TO homeland_db_user;
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.migrations (
+    id integer NOT NULL,
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
 
 --
--- TOC entry 219 (class 1259 OID 23161)
--- Name: resident; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
+
+
+--
+-- Name: resident; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.resident (
@@ -376,11 +331,8 @@ CREATE TABLE public.resident (
 );
 
 
-ALTER TABLE public.resident OWNER TO homeland_db_user;
-
 --
--- TOC entry 225 (class 1259 OID 23242)
--- Name: service; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: service; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.service (
@@ -393,11 +345,8 @@ CREATE TABLE public.service (
 );
 
 
-ALTER TABLE public.service OWNER TO homeland_db_user;
-
 --
--- TOC entry 224 (class 1259 OID 23235)
--- Name: service_package; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: service_package; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.service_package (
@@ -409,11 +358,8 @@ CREATE TABLE public.service_package (
 );
 
 
-ALTER TABLE public.service_package OWNER TO homeland_db_user;
-
 --
--- TOC entry 221 (class 1259 OID 23197)
--- Name: technician; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: technician; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.technician (
@@ -430,11 +376,8 @@ CREATE TABLE public.technician (
 );
 
 
-ALTER TABLE public.technician OWNER TO homeland_db_user;
-
 --
--- TOC entry 226 (class 1259 OID 23366)
--- Name: vehicle; Type: TABLE; Schema: public; Owner: homeland_db_user
+-- Name: vehicle; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.vehicle (
@@ -448,11 +391,15 @@ CREATE TABLE public.vehicle (
 );
 
 
-ALTER TABLE public.vehicle OWNER TO homeland_db_user;
+--
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
+
 
 --
--- TOC entry 3091 (class 2606 OID 23100)
--- Name: building PK_03b4a92f4aaa6114958969b6a9c; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: building PK_03b4a92f4aaa6114958969b6a9c; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.building
@@ -460,8 +407,7 @@ ALTER TABLE ONLY public.building
 
 
 --
--- TOC entry 3137 (class 2606 OID 23424)
--- Name: equipment PK_0722e1b9d6eb19f5874c1678740; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: equipment PK_0722e1b9d6eb19f5874c1678740; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.equipment
@@ -469,8 +415,7 @@ ALTER TABLE ONLY public.equipment
 
 
 --
--- TOC entry 3129 (class 2606 OID 23241)
--- Name: service_package PK_1275e8aa6ef5b9cd78906ea53d3; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: service_package PK_1275e8aa6ef5b9cd78906ea53d3; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.service_package
@@ -478,8 +423,7 @@ ALTER TABLE ONLY public.service_package
 
 
 --
--- TOC entry 3133 (class 2606 OID 23396)
--- Name: vehicle PK_187fa17ba39d367e5604b3d1ec9; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: vehicle PK_187fa17ba39d367e5604b3d1ec9; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.vehicle
@@ -487,8 +431,7 @@ ALTER TABLE ONLY public.vehicle
 
 
 --
--- TOC entry 3095 (class 2606 OID 23121)
--- Name: apartment PK_1b3223b3ffa6791f83b58951611; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: apartment PK_1b3223b3ffa6791f83b58951611; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.apartment
@@ -496,8 +439,7 @@ ALTER TABLE ONLY public.apartment
 
 
 --
--- TOC entry 3097 (class 2606 OID 23140)
--- Name: contract PK_2f25fae55a3bd80337501b310e3; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract PK_2f25fae55a3bd80337501b310e3; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -505,8 +447,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3125 (class 2606 OID 23232)
--- Name: employee PK_3c2bc72f03fd5abbbc5ac169498; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: employee PK_3c2bc72f03fd5abbbc5ac169498; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.employee
@@ -514,8 +455,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- TOC entry 3093 (class 2606 OID 23107)
--- Name: floor PK_45e4850aab53c1130ba72995e74; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: floor PK_45e4850aab53c1130ba72995e74; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.floor
@@ -523,8 +463,7 @@ ALTER TABLE ONLY public.floor
 
 
 --
--- TOC entry 3115 (class 2606 OID 23204)
--- Name: technician PK_465640daf2153d02a5114c86e95; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: technician PK_465640daf2153d02a5114c86e95; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.technician
@@ -532,8 +471,7 @@ ALTER TABLE ONLY public.technician
 
 
 --
--- TOC entry 3131 (class 2606 OID 23249)
--- Name: service PK_48c5a0e13da2b2948fb7f3a0c4a; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: service PK_48c5a0e13da2b2948fb7f3a0c4a; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.service
@@ -541,8 +479,7 @@ ALTER TABLE ONLY public.service
 
 
 --
--- TOC entry 3121 (class 2606 OID 23216)
--- Name: account PK_7e86daab9d155ec4cc3fd654454; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: account PK_7e86daab9d155ec4cc3fd654454; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.account
@@ -550,8 +487,7 @@ ALTER TABLE ONLY public.account
 
 
 --
--- TOC entry 3085 (class 2606 OID 23088)
--- Name: manager PK_b3ac840005ee4ed76a7f1c51d01; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: manager PK_b3ac840005ee4ed76a7f1c51d01; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.manager
@@ -559,8 +495,7 @@ ALTER TABLE ONLY public.manager
 
 
 --
--- TOC entry 3109 (class 2606 OID 23186)
--- Name: admin PK_e032310bcef831fb83101899b10; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: admin PK_e032310bcef831fb83101899b10; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.admin
@@ -568,8 +503,7 @@ ALTER TABLE ONLY public.admin
 
 
 --
--- TOC entry 3103 (class 2606 OID 23168)
--- Name: resident PK_f1a321823d6f69d0e348535fd37; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: resident PK_f1a321823d6f69d0e348535fd37; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.resident
@@ -577,8 +511,7 @@ ALTER TABLE ONLY public.resident
 
 
 --
--- TOC entry 3105 (class 2606 OID 23170)
--- Name: resident REL_0405db8663fd4529a487e3c032; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: resident REL_0405db8663fd4529a487e3c032; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.resident
@@ -586,8 +519,7 @@ ALTER TABLE ONLY public.resident
 
 
 --
--- TOC entry 3111 (class 2606 OID 23188)
--- Name: admin REL_7403ac47c3a65ad475bb9704fe; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: admin REL_7403ac47c3a65ad475bb9704fe; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.admin
@@ -595,8 +527,7 @@ ALTER TABLE ONLY public.admin
 
 
 --
--- TOC entry 3087 (class 2606 OID 23090)
--- Name: manager REL_766b0df54007cf8b91d659f8b0; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: manager REL_766b0df54007cf8b91d659f8b0; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.manager
@@ -604,8 +535,7 @@ ALTER TABLE ONLY public.manager
 
 
 --
--- TOC entry 3099 (class 2606 OID 23142)
--- Name: contract REL_95c24778f5158039a6fa8f8976; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract REL_95c24778f5158039a6fa8f8976; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -613,8 +543,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3117 (class 2606 OID 23206)
--- Name: technician REL_a5cc9be700210211a07aad3f52; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: technician REL_a5cc9be700210211a07aad3f52; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.technician
@@ -622,8 +551,7 @@ ALTER TABLE ONLY public.technician
 
 
 --
--- TOC entry 3101 (class 2606 OID 23144)
--- Name: contract REL_f7838bbfaca1c13e5791e63520; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract REL_f7838bbfaca1c13e5791e63520; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -631,8 +559,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3107 (class 2606 OID 23172)
--- Name: resident UQ_06b083ffda1f617880fbf602c99; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: resident UQ_06b083ffda1f617880fbf602c99; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.resident
@@ -640,8 +567,7 @@ ALTER TABLE ONLY public.resident
 
 
 --
--- TOC entry 3135 (class 2606 OID 23398)
--- Name: vehicle UQ_08f5ab49f428e2090a434623a86; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: vehicle UQ_08f5ab49f428e2090a434623a86; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.vehicle
@@ -649,8 +575,7 @@ ALTER TABLE ONLY public.vehicle
 
 
 --
--- TOC entry 3089 (class 2606 OID 23092)
--- Name: manager UQ_0bf0cc7e84d95c46c051a57aa5a; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: manager UQ_0bf0cc7e84d95c46c051a57aa5a; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.manager
@@ -658,8 +583,7 @@ ALTER TABLE ONLY public.manager
 
 
 --
--- TOC entry 3123 (class 2606 OID 23218)
--- Name: account UQ_4c8f96ccf523e9a3faefd5bdd4c; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: account UQ_4c8f96ccf523e9a3faefd5bdd4c; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.account
@@ -667,8 +591,7 @@ ALTER TABLE ONLY public.account
 
 
 --
--- TOC entry 3113 (class 2606 OID 23190)
--- Name: admin UQ_8d6044ea49c7363e7329737351b; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: admin UQ_8d6044ea49c7363e7329737351b; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.admin
@@ -676,8 +599,7 @@ ALTER TABLE ONLY public.admin
 
 
 --
--- TOC entry 3127 (class 2606 OID 23234)
--- Name: employee UQ_97bbfba3a57621a204f5874e6a3; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: employee UQ_97bbfba3a57621a204f5874e6a3; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.employee
@@ -685,8 +607,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- TOC entry 3119 (class 2606 OID 23208)
--- Name: technician UQ_d103b5bce8de1a3df32002c8c93; Type: CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: technician UQ_d103b5bce8de1a3df32002c8c93; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.technician
@@ -694,8 +615,15 @@ ALTER TABLE ONLY public.technician
 
 
 --
--- TOC entry 3147 (class 2606 OID 23300)
--- Name: resident FK_0405db8663fd4529a487e3c0327; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.migrations
+    ADD CONSTRAINT migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: resident FK_0405db8663fd4529a487e3c0327; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.resident
@@ -703,8 +631,7 @@ ALTER TABLE ONLY public.resident
 
 
 --
--- TOC entry 3140 (class 2606 OID 23260)
--- Name: floor FK_1565850c51d1cc30e896101fa77; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: floor FK_1565850c51d1cc30e896101fa77; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.floor
@@ -712,8 +639,7 @@ ALTER TABLE ONLY public.floor
 
 
 --
--- TOC entry 3153 (class 2606 OID 23425)
--- Name: equipment FK_18c1ade809ed0c03570b2b9897c; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: equipment FK_18c1ade809ed0c03570b2b9897c; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.equipment
@@ -721,8 +647,7 @@ ALTER TABLE ONLY public.equipment
 
 
 --
--- TOC entry 3154 (class 2606 OID 23430)
--- Name: equipment FK_26430a91a04092c67a984c37db1; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: equipment FK_26430a91a04092c67a984c37db1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.equipment
@@ -730,8 +655,7 @@ ALTER TABLE ONLY public.equipment
 
 
 --
--- TOC entry 3152 (class 2606 OID 23404)
--- Name: vehicle FK_4cb723ab505ae48c5ef46b827c6; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: vehicle FK_4cb723ab505ae48c5ef46b827c6; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.vehicle
@@ -739,8 +663,7 @@ ALTER TABLE ONLY public.vehicle
 
 
 --
--- TOC entry 3143 (class 2606 OID 23285)
--- Name: contract FK_6e98ee9bed0e7b69ca3fec522ca; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract FK_6e98ee9bed0e7b69ca3fec522ca; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -748,8 +671,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3149 (class 2606 OID 23310)
--- Name: admin FK_7403ac47c3a65ad475bb9704fe7; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: admin FK_7403ac47c3a65ad475bb9704fe7; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.admin
@@ -757,8 +679,7 @@ ALTER TABLE ONLY public.admin
 
 
 --
--- TOC entry 3138 (class 2606 OID 23250)
--- Name: manager FK_766b0df54007cf8b91d659f8b07; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: manager FK_766b0df54007cf8b91d659f8b07; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.manager
@@ -766,8 +687,7 @@ ALTER TABLE ONLY public.manager
 
 
 --
--- TOC entry 3141 (class 2606 OID 23265)
--- Name: apartment FK_81b84604fffd7cd77950c7527ab; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: apartment FK_81b84604fffd7cd77950c7527ab; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.apartment
@@ -775,8 +695,7 @@ ALTER TABLE ONLY public.apartment
 
 
 --
--- TOC entry 3142 (class 2606 OID 23270)
--- Name: apartment FK_85733549aac7c41caec8e95e080; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: apartment FK_85733549aac7c41caec8e95e080; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.apartment
@@ -784,8 +703,7 @@ ALTER TABLE ONLY public.apartment
 
 
 --
--- TOC entry 3148 (class 2606 OID 23305)
--- Name: resident FK_94b757a77f8d48bbab3d07b0048; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: resident FK_94b757a77f8d48bbab3d07b0048; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.resident
@@ -793,8 +711,7 @@ ALTER TABLE ONLY public.resident
 
 
 --
--- TOC entry 3144 (class 2606 OID 23275)
--- Name: contract FK_95c24778f5158039a6fa8f89761; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract FK_95c24778f5158039a6fa8f89761; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -802,8 +719,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3139 (class 2606 OID 23399)
--- Name: manager FK_9a555f4704d10875ce0e96f7adf; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: manager FK_9a555f4704d10875ce0e96f7adf; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.manager
@@ -811,8 +727,7 @@ ALTER TABLE ONLY public.manager
 
 
 --
--- TOC entry 3155 (class 2606 OID 23435)
--- Name: equipment FK_a16fcd190ba1163562bd36ea361; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: equipment FK_a16fcd190ba1163562bd36ea361; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.equipment
@@ -820,8 +735,7 @@ ALTER TABLE ONLY public.equipment
 
 
 --
--- TOC entry 3150 (class 2606 OID 23315)
--- Name: technician FK_a5cc9be700210211a07aad3f522; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: technician FK_a5cc9be700210211a07aad3f522; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.technician
@@ -829,8 +743,7 @@ ALTER TABLE ONLY public.technician
 
 
 --
--- TOC entry 3151 (class 2606 OID 23320)
--- Name: service_package FK_dd059309aa7ad3f8e631d5a9b4e; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: service_package FK_dd059309aa7ad3f8e631d5a9b4e; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.service_package
@@ -838,8 +751,7 @@ ALTER TABLE ONLY public.service_package
 
 
 --
--- TOC entry 3145 (class 2606 OID 23290)
--- Name: contract FK_e376d998cdfc48b6f794322efbb; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract FK_e376d998cdfc48b6f794322efbb; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -847,8 +759,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3146 (class 2606 OID 23280)
--- Name: contract FK_f7838bbfaca1c13e5791e635204; Type: FK CONSTRAINT; Schema: public; Owner: homeland_db_user
+-- Name: contract FK_f7838bbfaca1c13e5791e635204; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.contract
@@ -856,47 +767,41 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- TOC entry 3304 (class 0 OID 0)
--- Dependencies: 5
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: homeland_db_user
+-- PostgreSQL database dump complete
 --
 
-REVOKE USAGE ON SCHEMA public FROM PUBLIC;
-
-
 --
--- TOC entry 2114 (class 826 OID 16391)
--- Name: DEFAULT PRIVILEGES FOR SEQUENCES; Type: DEFAULT ACL; Schema: -; Owner: postgres
+-- PostgreSQL database dump
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres GRANT ALL ON SEQUENCES  TO homeland_db_user;
+-- Dumped from database version 16.0 (Debian 16.0-1.pgdg120+1)
+-- Dumped by pg_dump version 16.0
 
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
 
 --
--- TOC entry 2116 (class 826 OID 16393)
--- Name: DEFAULT PRIVILEGES FOR TYPES; Type: DEFAULT ACL; Schema: -; Owner: postgres
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres GRANT ALL ON TYPES  TO homeland_db_user;
-
-
---
--- TOC entry 2115 (class 826 OID 16392)
--- Name: DEFAULT PRIVILEGES FOR FUNCTIONS; Type: DEFAULT ACL; Schema: -; Owner: postgres
---
-
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres GRANT ALL ON FUNCTIONS  TO homeland_db_user;
+COPY public.migrations (id, migration, batch) FROM stdin;
+\.
 
 
 --
--- TOC entry 2113 (class 826 OID 16390)
--- Name: DEFAULT PRIVILEGES FOR TABLES; Type: DEFAULT ACL; Schema: -; Owner: postgres
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres GRANT ALL ON TABLES  TO homeland_db_user;
+SELECT pg_catalog.setval('public.migrations_id_seq', 1, false);
 
-
--- Completed on 2023-11-17 22:54:52
 
 --
 -- PostgreSQL database dump complete

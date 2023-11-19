@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -38,15 +37,6 @@ Route::post('seed/DB', function () {
         DB::unprepared($sqlStatements);
 
         return 'Migrations executed successfully';
-    } catch (\Exception $e) {
-        return 'Error: ' . $e->getMessage();
-    }
-});
-
-Route::post('seed', function () {
-    try {
-        Artisan::call('db:seed');
-        return 'Seeding executed successfully';
     } catch (\Exception $e) {
         return 'Error: ' . $e->getMessage();
     }

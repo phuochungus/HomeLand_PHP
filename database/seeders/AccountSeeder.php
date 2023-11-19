@@ -7,7 +7,6 @@ use App\Models\Admin;
 use App\Models\Manager;
 use App\Models\Resident;
 use App\Models\Technician;
-use Database\Factories\ResidentFactory;
 use Illuminate\Database\Seeder;
 
 
