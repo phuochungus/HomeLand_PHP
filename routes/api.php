@@ -26,7 +26,7 @@ Route::post('/signin', [AuthController::class, 'login']);
 Route::delete('seed/DB', function () {
     db::statement('DROP SCHEMA public CASCADE');
     db::statement('CREATE SCHEMA public');
-    return 'All tables dropped successfully';
+    return 'All tables dropped successfully!';
 });
 
 Route::post('seed/DB', function () {
