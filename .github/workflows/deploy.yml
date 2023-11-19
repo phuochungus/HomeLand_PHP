@@ -1,9 +1,9 @@
-name: Deploy on Render
+name: Trigger Render Deploy
 
 on:
   workflow_run:
     workflows:
-      - "Docker Image CI"
+      - "Build and Publish Docker Image"
     types:
       - completed
   workflow_dispatch:
