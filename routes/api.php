@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/signin', [AuthController::class, 'login']);
+Route::post('/signin', AuthController::class);
 
 Route::delete('seed/DB', function () {
     db::statement('DROP SCHEMA public CASCADE');
