@@ -1,21 +1,18 @@
-name: Deploy on Render
+name: Trigger Render Deploy
 
 on:
-  workflow_dispatch:
   workflow_run:
     workflows:
-      - "Docker Image CI"
+      - "Build and Publish Docker Image"
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger webhook
-        env: 
+        env:
           RENDER_KEY: ${{secrets.RENDER_KEY}}
         run: curl https://api.render.com/deploy/srv-cl8es8quuipc73eq490g?key=$RENDER_KEY
-      
-    
