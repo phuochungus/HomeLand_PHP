@@ -53,6 +53,17 @@
 
     use App\Mail\MailableName;
 
+
+    //Thêm vào file .env
+    // MAIL_DRIVER=smtp
+    // MAIL_HOST=smtp.gmail.com
+    // MAIL_PORT=465
+    // MAIL_USERNAME=21520252@gm.uit.edu.vn
+    // MAIL_PASSWORD=Nhap password cua mail hoac app password tu 
+    // https://knowledge.workspace.google.com/kb/how-to-generate-an-app-passwords-000009237?hl=vi
+    // MAIL_ENCRYPTION=ssl
+    // MAIL_FROM_NAME=Newsletter
+
     Route::get('sendmail/{mail}', function (string $mail) {
         Mail::to($mail)->send(new MailableName());
         return 'Mail sent successfully';
