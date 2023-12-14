@@ -55,9 +55,9 @@ class BuildingController extends Controller
     }
     public function update(Request $request) {
         $validate = Validator::make($request->all(),[
-            "name" => ['required'],
+            "name" => ['string'],
             "max_floor" => ['required', 'integer'],
-            "address" => ['required'],
+            "address" => ['string'],
         ]);
         if($validate->fails()) {
             return response()->json($validate->messages(), 400);
